@@ -24,8 +24,8 @@ This is a dockerized Spring Boot microservice with a GET api to get the log file
 2. By running a test case within the `LogParsingControllerIT.java` we are running the simulation api with different input params.
 3. To test the API and see API documentation, import the `api.json` under the root folder into postman.
    https://learning.postman.com/docs/designing-and-developing-your-api/importing-an-api/
-   
+   ![img.png](img.png)
 4. Remote JVM debug port expose to `8000`
-5. Unit tests post-fixed with `*Test.java`. Integration tests post-fixed with `*IT.java` 
+5. Unit tests post-fixed with `*Test.java`. Component tests post-fixed with `*IT.java` 
 7. Note that logging is disabled for performance for tests.
 8. Some test log files are stored under the `local-development/files` folder
