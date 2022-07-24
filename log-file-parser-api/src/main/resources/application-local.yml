@@ -1,0 +1,25 @@
+logging:
+  level:
+    root: INFO
+info:
+  app:
+    name: 'log-file-parser'
+    description: 'log-file-parser'
+    version: '{version}'
+server:
+  port: 80
+  servlet:
+    context-path: '/log-file-parser-api'
+  compression:
+    enabled: true
+  tomcat:
+    max-threads: 400
+    mbeanregistry:
+      enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: '/status' # health check endpoint.
+

@@ -1,0 +1,22 @@
+target/
+local-development/app.jar
+local-development/data
+.mvn/wrapper/maven-wrapper.jar
+**/src/main/**/target/
+**/src/test/**/target/
+api.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+log
+### IntelliJ IDEA ###
+.idea
+*.iml
+*.ipr
+chromedriver.exe

@@ -1,0 +1,98 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Log parsing service",
+    "description": "Log parsing service API",
+    "version": "${version}"
+  },
+
+  "paths": {
+    "/analytics": {
+      "get": {
+        "tags": [
+          "analytics"
+        ],
+        "description": "get flow log analytics including number of unique ip addresses, top 3 most active ip addresses",
+        "operationId": "getAnalytics",
+        "parameters": [
+          {
+            "name": "log-file-name",
+            "in": "query",
+            "required": true,
+            "description": "Name of the log file to analyze",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAnalyticsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error occurred when simulating",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetAnalyticsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/AnalyticsDto"
+          }
+        }
+      },
+      "AnalyticsDto": {
+        "type": "object",
+        "properties": {
+          "numUniqueIpAddresses": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "top3MostActiveIpAddresses": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "top3MostVisitedUrls": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+
+    }
+
+  }
+}

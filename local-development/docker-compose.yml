@@ -1,0 +1,15 @@
+version: '3.2'
+services:
+  log-file-parser-service:
+    image: zdy120939259/log-file-parser-service:latest
+    build:
+      context: ../
+      dockerfile: ./local-development/Dockerfile
+    ports:
+      - 80:80
+      - 8000:8000
+
+    environment:
+      JAVA_OPTS: -Dlogging.level.net.markz.logfileparser.api=DEBUG -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000
+
+volumes: { }
