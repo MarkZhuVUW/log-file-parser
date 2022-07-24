@@ -5,13 +5,10 @@ This is a dockerized Spring Boot microservice with a GET api to get the log file
 1. ip addresses and urls appear once per line in the log file.
 2. each log entry in the log file is line separated.
 3. ip addresses and urls can appear anywhere in the log file.
-### unique ip addreses
-1. use long to accommodate unique ip occurrences
-### top 3 most active ip addresses
-1. if the number of occurrences of ip addresses exceed `Long.MAX_VALUE`, order them by the lexicographical ordering of the ip address string.
-### top 3 most visited urls
-1. if the number of occurrences of urls exceed `Long.MAX_VALUE`, order them by the lexicographical ordering of the url string.
-2. http method type in the url string is separated by a single space `GET /blabla`
+4. the number of occurrence of url and ip address does not exceed `Long.MAX_VALUE`.
+5. For same occurrences of url or ip address, order them by lexicographical ordering of the string url or ip address.
+6. http method type in the url string is separated by a single space `GET /blabla`
+
 ### build requirements
 1. JDK 17
 2. Maven
