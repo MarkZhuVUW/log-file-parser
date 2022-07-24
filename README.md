@@ -1,5 +1,7 @@
 # log-file-parser-service
-This is a dockerized Spring Boot microservice with a GET api to get the log file analytics.
+This is a dockerized Spring Boot microservice that I am happy to maintain.
+
+# A GET api to get the log file analytics
 
 ## assumptions
 1. ip addresses and urls appear once per line in the log file.
