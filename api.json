@@ -64,8 +64,7 @@
         "type": "object",
         "properties": {
           "numUniqueIpAddresses": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           },
           "top3MostActiveIpAddresses": {
             "type": "array",

@@ -8,7 +8,8 @@ services:
     ports:
       - 80:80
       - 8000:8000
-
+    volumes:
+      -  ./files:/home/files
     environment:
       JAVA_OPTS: -Dlogging.level.net.markz.logfileparser.api=DEBUG -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000
 

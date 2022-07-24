@@ -14,7 +14,7 @@ public final record Utils() {
      * @param <T>
      * @return
      */
-    public static <T> ResponseEntity<T> handleException(Lazy<T> callback) {
+    public static <T> ResponseEntity<T> handleException(Lazy<T> callback, T errorResponse) {
         try {
             return ResponseEntity.ok(callback.lazyDo());
         } catch (LogFileParserServiceException e) {
@@ -22,7 +22,7 @@ public final record Utils() {
             log.error(e.toString());
             return ResponseEntity
                     .status(e.getHttpStatus())
-                    .body(callback.lazyDo());
+                    .body(errorResponse);
         }
     }
 

@@ -2,8 +2,16 @@
 This is a dockerized Spring Boot microservice with a GET api to get the log file analytics.
 
 ## assumptions
-1. 
-
+1. ip addresses and urls appear once per line in the log file.
+2. each log entry in the log file is line separated.
+3. ip addresses and urls can appear anywhere in the log file.
+### unique ip addreses
+1. use long to accommodate unique ip occurrences
+### top 3 most active ip addresses
+1. if the number of occurrences of ip addresses exceed `Long.MAX_VALUE`, order them by the lexicographical ordering of the ip address string.
+### top 3 most visited urls
+1. if the number of occurrences of urls exceed `Long.MAX_VALUE`, order them by the lexicographical ordering of the url string.
+2. http method type in the url string is separated by a single space `GET /blabla`
 ### build requirements
 1. JDK 17
 2. Maven
@@ -19,5 +27,5 @@ This is a dockerized Spring Boot microservice with a GET api to get the log file
    
 4. Remote JVM debug port expose to `8000`
 5. Unit tests post-fixed with `*Test.java`. Integration tests post-fixed with `*IT.java` 
-6. I have load tests under `SimulationApiLoadTest.java` testing whether the above assumptions can be met without out of memory error.
-7. Note that logging is disabled for performance for tests. You can spin up the docker container to test the logs.
+7. Note that logging is disabled for performance for tests.
+8. Some test log files are stored under the `local-development/files` folder
